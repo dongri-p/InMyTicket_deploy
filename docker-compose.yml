@@ -1,8 +1,7 @@
 services:
   backend:
     build: ../backend
-    ports:
-      - "8080:8080"
+    # 외부 포트는 열지 않는다. API는 frontend(nginx)의 /api/ 프록시로만 들어온다.
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/inmyticket?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
