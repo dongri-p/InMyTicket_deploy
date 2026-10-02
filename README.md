@@ -41,6 +41,7 @@ docker compose up --build -d
 | `VITE_API_BASE_URL` | 프론트 빌드 시 들어가는 API 주소 |
 
 ## 운영 메모
+* 백엔드는 GitHub Actions가 GHCR(`ghcr.io/dongri-p/inmyticket-backend`)에 올린 이미지를 사용합니다. 수동 반영: `docker compose pull backend && docker compose up -d --no-deps backend`
 * 프론트만 바꿨을 때: `docker compose build frontend && docker compose up -d --no-deps frontend` (`depends_on` 때문에 그냥 `up --build frontend`를 하면 백엔드까지 빌드됩니다)
 * 백엔드 컨테이너를 재생성한 뒤 API가 502로 실패하면 `frontend`를 재시작합니다. Nginx가 `backend` 호스트명을 기동 시점에 한 번만 조회하기 때문입니다.
 * 관리자 비밀번호 변경: `.env`의 `ADMIN_PASSWORD`를 수정한 뒤 `docker compose up -d --no-deps backend`
