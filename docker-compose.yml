@@ -13,6 +13,7 @@ services:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - KOPIS_API_KEY=${KOPIS_API_KEY}
       - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}
+      - JAVA_TOOL_OPTIONS=-Duser.timezone=Asia/Seoul
     depends_on:
       - db
     restart: always
