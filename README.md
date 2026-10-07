@@ -33,5 +33,5 @@ docker compose up -d
 
 ## 운영 메모
 * 배포는 Actions가 자동으로 하지만, 수동으로 반영할 때는 `docker compose pull <서비스> && docker compose up -d --no-deps <서비스>`
-* 백엔드 컨테이너를 재생성한 뒤 API가 502로 실패하면 `frontend`를 재시작합니다. Nginx가 `backend` 호스트명을 기동 시점에 한 번만 조회하기 때문입니다.
+* Nginx는 도커 내장 DNS(`resolver 127.0.0.11`)로 `backend`를 요청 시점에 조회하므로, 백엔드 컨테이너를 재생성해도 `frontend` 재시작이 필요 없습니다. `nginx/default.conf`를 고친 뒤에는 `docker compose exec frontend nginx -s reload`로 반영합니다.
 * 관리자 비밀번호 변경: `.env`의 `ADMIN_PASSWORD`를 수정한 뒤 `docker compose up -d --no-deps backend`
