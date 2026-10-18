@@ -33,6 +33,7 @@ docker compose up -d
 | `JWT_SECRET` | JWT 서명 키 |
 | `ADMIN_LOGIN_ID`, `ADMIN_PASSWORD` | 기동할 때 만들어지는 관리자 계정 |
 | `KOPIS_API_KEY` | KOPIS 공연 정보 API 키 |
+| `TOSS_SECRET_KEY` | 토스페이먼츠 시크릿 키 (테스트 키, 프론트 클라이언트 키와 같은 상점) |
 | `CORS_ALLOWED_ORIGINS` | 백엔드 CORS 허용 주소 |
 
 ## 운영하면서 쓰는 명령
